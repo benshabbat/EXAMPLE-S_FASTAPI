@@ -1,13 +1,13 @@
-from string_ops import reverse_str,remove_every_third,to_upper,letter_counts_map,remove_vowels
+from fastapi import FastAPI
+import uvicorn
+
+app = FastAPI()
 
 
-def main_run():
-    print(reverse_str("Hello, World!"))
-    print(to_upper("Hello, World!"))
-    print(remove_vowels("This is an example."))
-    print(remove_every_third("This is an example."))
-    print(letter_counts_map("This is an example."))
 
-
-if __name__ == "__main__":
-    main_run()
+@app.get("/")
+def read_root():
+    return {"messag"}
+@app.get("/{text}")
+def get_root(text: str):
+    return {"message": f"Welcome to the String Operations API, you entered: {text}"}
